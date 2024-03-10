@@ -1,12 +1,11 @@
 <script>
-import Projects from './Projects.vue';
 import { store } from '../store.js';
+import Project from './Project.vue';
 import axios from 'axios';
-
 export default {
     name: 'AppMain',
     components: {
-        Projects
+        Project
     },
     data() {
         return {
@@ -14,13 +13,16 @@ export default {
             projects: []
         }
     },
-    async mounted() {
-        await this.getProjects();
+    mounted() {
+        this.getProjects();
     },
     methods: {
-        async getProjects() {
-            const response = await axios.get(this.store.baseUrl + 'projects');
-            console.log(response);
+        getProjects() {
+                axios.get(this.store.baseUrl + 'projects').then((response) => {
+                this.projects = response.data.results;
+                console.log(response.data.results);
+            });
+
         }
     }
 }
@@ -29,10 +31,19 @@ export default {
 
 <template lang="">
     <div>
-        
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="content d-flex flex-wrap my-3">
+                        <project v-for="project, index in projects " :key="index" :project="project"/>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
-<style lang="">
+<style lang="scss" scoped>
+@use '../styles/general.scss';
 
 </style>

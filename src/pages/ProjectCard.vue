@@ -17,11 +17,11 @@ export default {
                 <div class="card" style="width: 18rem;">
                     <img src="..." class="card-img-top">
                     <div class="card-body">
-                        <h5 class="card-title">{{ project.nome }}</h5>
+                        <h5 class="card-title"><router-link :to="{ name: 'singleProject', params: { slug: project.slug } }">{{ project.name }}</router-link></h5>
                         <p class="card-text">{{ project.slug }}</p>
-                        <p class="card-text">{{ project.programma }}</p>
+                        <p class="card-text">{{ project.title }}</p>
                         <p class="card-text">{{ project.data }}</p>
-                        <p class="card-text">{{ project.descrizione }}</p>
+                        <p class="card-text">{{ project.content }}</p>
                     </div>
                 </div>
 

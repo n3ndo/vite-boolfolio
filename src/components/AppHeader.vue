@@ -12,8 +12,8 @@ export default {
     <header class="header">
         <div class="title">Boolfolio</div>
         <ul class="list">
-            <li class="text-white"><router-link :to="{name:'AppMain'}">Project</router-link></li>
-            <li>Technology</li>
+            <li><router-link :to="{ name: 'home' }">Home</router-link></li>
+            <li><router-link :to="{ name: 'cards' }">Projects</router-link></li>
             <li>Type</li>
         </ul>
     </header>

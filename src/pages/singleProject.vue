@@ -6,7 +6,7 @@ export default {
     data() {
         return {
             store,
-            project: null 
+            project: {}
         }
     },
     mounted() {
@@ -25,10 +25,9 @@ export default {
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <div class="card">
+                <div class="card my-3">
                     <div class="card-body">
                         <h5 class="card-title">{{ project.title }}</h5>
-                        <p class="card-text">{{ project.slug }}</p>
                         <p class="card-text">{{ project.content }}</p>
                         <p class="card-text">{{ project.data }}</p>
                     </div>
